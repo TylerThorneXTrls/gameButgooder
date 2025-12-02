@@ -21,7 +21,7 @@
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
          const playerProjectiles = {
-            img:"./energy.gif",
+            img:"energy.gif",
             frames:3,
             frameLength:10,
             frameheight:10,
@@ -29,14 +29,14 @@
             colums:0
         }
         const playerMovingLeft = {
-            img:"./playerMovingLeft.png",
+            img:"playerMovingLeft.png",
             frames:3,
             frameLength:50,
             frameheight:100,
             frameRate:100,
         }
         const playerMovingRight = {
-            img:"./playerMovingRight.png",
+            img:"playerMovingRight.png",
             frames:3,
             frameLength:50,
             frameheight:100,
@@ -51,8 +51,8 @@
             frameRate:100,
             colums:0
         }
-            const enemySpreadSheetLizard = {
-                img:"lizardMan.png",
+         const enemySpreadSheetLizard = {
+            img:"lizardMan.png",
             img2:"lizardmanLeft.png",
             frames:3,
             frameLength:100,
@@ -62,7 +62,7 @@
         }
         
         const playerSwordProjectile ={
-            img:"./swordSprite.png",
+            img:"swordSprite.png",
             frames:3,
             frameLength:10,
             frameheight:50,
@@ -70,7 +70,7 @@
             colums:2
         }
         const playerDeathLazer = {
-            img:"./deathLazer.png",
+            img:"deathLazer.png",
             frames:3,
             frameLength:20,
             frameheight:20,
@@ -339,7 +339,7 @@ draw() {
         window.addEventListener('keyup', (e) => {
             if (keyMovement.hasOwnProperty(e.key)) {
                 keyMovement[e.key] = false;
-                player.image = loadImage("standing.gif")
+                player.image = loadImage("/standing.gif")
             }
         });
         addEventListener('keydown',(e)=>{
@@ -409,10 +409,10 @@ if (keyMovement.ArrowRight) {
         addEventListener('mousemove', (m) => {
             fixed = canvas.getBoundingClientRect()
             playerProjectile.forEach((projectile)=>{
-                if(projectile.spreadsheetinfo ===playerDeathLazer){
-                    console.log(true)
-                    const  dy =  mousePositionY -m.clientY
-                    const dx = mousePositionX -m.clientX
+                if(Projectile.spreadsheetinfo ===playerDeathLazer){
+                    
+                    const  dy =  mousePositionY -clientY
+                    const dx = mousePositionX -clientX
 
                 projectile.x += dx
                 projectile.y += dy
@@ -426,7 +426,7 @@ if (keyMovement.ArrowRight) {
                 let angle = player.findangle(mousePositionX, mousePositionY)
                 const projectile = new Projectile((player.x + player.width / 2), (player.y + player.height / 2), 3, angle,30,30,"black",playerDeathLazer )
                 playerProjectile.push(projectile)
-                newProjectileLazer = false
+                newProjectile = false
                 setTimeout(() => { newProjectileLazer = true }, 0)
             }         }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
         })
